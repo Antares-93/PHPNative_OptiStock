@@ -1,0 +1,496 @@
+/* public/assets/style.css — OptiStock Unified Design System */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #2563eb;
+    --primary-hover: #1d4ed8;
+    --primary-light: #eff6ff;
+    --bg-page: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --border-focus: #3b82f6;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+    --success: #10b981;
+    --success-bg: #ecfdf5;
+    --danger: #ef4444;
+    --danger-bg: #fef2f2;
+    --warning: #f59e0b;
+    --warning-bg: #fffbeb;
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06);
+    --shadow-md: 0 4px 14px -2px rgba(15, 23, 42, 0.08);
+    --shadow-lg: 0 10px 25px -3px rgba(15, 23, 42, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--bg-page);
+    color: var(--text-main);
+    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   1. NAVBAR & HEADER
+   ========================================================================== */
+.navbar {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.85rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    text-decoration: none;
+}
+
+.brand-badge {
+    font-size: 1.25rem;
+    background: var(--primary-light);
+    padding: 0.35rem 0.5rem;
+    border-radius: var(--radius-sm);
+    line-height: 1;
+}
+
+.brand-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+}
+
+.brand-text strong {
+    color: var(--primary);
+    font-weight: 800;
+}
+
+.nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.nav-actions a:not(.btn) {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.88rem;
+    font-weight: 500;
+    padding: 0.45rem 0.75rem;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s ease;
+}
+
+.nav-actions a:not(.btn):hover,
+.nav-actions a.active {
+    color: var(--primary);
+    background: var(--primary-light);
+}
+
+.nav-sep {
+    width: 1px;
+    height: 18px;
+    background: var(--border);
+    margin: 0 0.2rem;
+}
+
+.user-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    background: #f1f5f9;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+}
+
+.role-tag {
+    font-size: 0.68rem;
+    padding: 0.12rem 0.45rem;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.role-tag.admin { background: #dbeafe; color: #1e40af; }
+.role-tag.staff { background: #fef3c7; color: #92400e; }
+
+.btn-logout {
+    color: var(--danger) !important;
+}
+
+/* ==========================================================================
+   2. LAYOUT CONTAINER & TYPOGRAPHY
+   ========================================================================== */
+.page-body {
+    flex: 1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+}
+
+h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-main);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+}
+
+/* ==========================================================================
+   3. DASHBOARD STATS CARDS (MEMPERBAIKI GAMBAR 2)
+   ========================================================================== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.25rem;
+    margin-bottom: 2rem;
+}
+
+.stat-card {
+    background: var(--surface);
+    padding: 1.4rem 1.5rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.stat-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.stat-title {
+    font-size: 0.78rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: 0.5rem;
+}
+
+.stat-value {
+    font-size: 1.85rem;
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    color: var(--text-main);
+    line-height: 1.2;
+}
+
+/* ==========================================================================
+   4. FORMULIR & LOGIN (MEMPERBAIKI GAMBAR 1 & GAMBAR 3)
+   ========================================================================== */
+.form-container {
+    background: var(--surface);
+    padding: 2.25rem;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-md);
+    max-width: 520px;
+    margin: 2rem auto;
+}
+
+.form-container h2,
+.form-container h3 {
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.35rem;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.45rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.7rem 0.95rem;
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: var(--surface);
+    color: var(--text-main);
+    outline: none;
+    transition: all 0.2s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--border-focus);
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   5. TOMBOL (BUTTONS)
+   ========================================================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.45rem;
+    padding: 0.65rem 1.2rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--radius-sm);
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-primary {
+    background: var(--primary);
+    color: #ffffff;
+}
+
+.btn-primary:hover {
+    background: var(--primary-hover);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.btn-secondary {
+    background: #f1f5f9;
+    color: var(--text-main);
+}
+
+.btn-secondary:hover {
+    background: #e2e8f0;
+}
+
+.btn-danger {
+    background: var(--danger);
+    color: #ffffff;
+}
+
+.btn-danger:hover {
+    background: #dc2626;
+}
+
+/* ==========================================================================
+   6. TABEL & DAFTAR
+   ========================================================================== */
+.table-card,
+.table-responsive {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin-bottom: 2rem;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+}
+
+th {
+    background: #f8fafc;
+    padding: 0.9rem 1.25rem;
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--text-muted);
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid var(--border);
+    text-transform: uppercase;
+}
+
+td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+tr:last-child td {
+    border-bottom: none;
+}
+
+tr:hover td {
+    background-color: #fafbfc;
+}
+
+.sku-tag {
+    font-family: monospace;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+}
+
+.product-title {
+    font-weight: 600;
+    color: var(--text-main);
+}
+
+.cat-tag {
+    display: inline-block;
+    font-size: 0.8rem;
+    color: #475569;
+    background: #f1f5f9;
+    padding: 0.25rem 0.6rem;
+    border-radius: 999px;
+}
+
+.price-text {
+    font-weight: 700;
+    color: var(--text-main);
+}
+
+/* ==========================================================================
+   7. BADGE, ALERTS, & FOOTER
+   ========================================================================== */
+.badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.65rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-in { background: var(--success-bg); color: var(--success); }
+.badge-out { background: var(--danger-bg); color: var(--danger); }
+
+.stock-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.3rem 0.75rem;
+    border-radius: 999px;
+}
+
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.stock-available { background: var(--success-bg); color: #047857; }
+.stock-available .dot { background: var(--success); }
+.stock-empty { background: var(--danger-bg); color: #b91c1c; }
+.stock-empty .dot { background: var(--danger); }
+
+.alert {
+    padding: 0.9rem 1.25rem;
+    border-radius: var(--radius-sm);
+    font-size: 0.88rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+}
+.alert-success { background: var(--success-bg); color: #047857; border: 1px solid #a7f3d0; }
+.alert-error { background: var(--danger-bg); color: #b91c1c; border: 1px solid #fecaca; }
+
+/* KATALOG GUEST */
+.catalog-hero {
+    text-align: center;
+    max-width: 650px;
+    margin: 0 auto 2.5rem auto;
+}
+.hero-pill {
+    display: inline-block;
+    background: var(--primary-light);
+    color: var(--primary);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.3rem 0.8rem;
+    border-radius: 999px;
+    margin-bottom: 0.8rem;
+}
+.filter-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 1rem 1.25rem;
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 1.5rem;
+}
+.filter-form {
+    display: flex;
+    gap: 0.75rem;
+    align-items: center;
+    flex-wrap: wrap;
+}
+.filter-input-wrap {
+    flex: 1;
+    min-width: 260px;
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+.search-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-muted);
+}
+.filter-input-wrap input {
+    padding-left: 2.6rem;
+}
+
+.footer {
+    border-top: 1px solid var(--border);
+    background: var(--surface);
+    padding: 1.5rem;
+    margin-top: auto;
+}
+.footer-content {
+    text-align: center;
+    padding: 0;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
